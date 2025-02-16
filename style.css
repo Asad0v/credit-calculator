@@ -152,3 +152,18 @@ input[type="range"]::-ms-thumb {
     gap: 30px;
     margin: 40px 0;
 }
+#btn{
+    display: flex;
+    border-radius: 25px;
+    overflow: hidden;
+} 
+.a1{
+    padding: 25px;
+    display: flex;
+    cursor: pointer;
+
+    gap: 15px;
+    p{
+        width: 90px;
+    }
+}

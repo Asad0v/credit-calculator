@@ -9,49 +9,66 @@
 </head>
 
 <body>
+    <div id="btn">
+        <div onclick="change(true)" class="a1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40" fill="none"><path d="M51 9H1V39H51V9Z" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 4V1H59V31H56" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33.125 23.9687C33.125 28.3906 30.1758 31.9756 26.5391 31.9756C22.9014 31.9756 19.9521 28.3906 19.9521 23.9687C19.9521 19.5459 22.9014 15.9619 26.5391 15.9619C30.1758 15.9619 33.125 19.5459 33.125 23.9687Z" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <p>nağd krediti hesabla</p>
+        </div>
+        <div onclick="change(false)" class="a1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40" fill="none"><path d="M51 9H1V39H51V9Z" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 4V1H59V31H56" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33.125 23.9687C33.125 28.3906 30.1758 31.9756 26.5391 31.9756C22.9014 31.9756 19.9521 28.3906 19.9521 23.9687C19.9521 19.5459 22.9014 15.9619 26.5391 15.9619C30.1758 15.9619 33.125 19.5459 33.125 23.9687Z" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            
+            <p style="width: 136px;">əmanət üzrə gəliri hesabla</p>
+        </div>
+    </div>
+    <div id="nagd">
+        <h2 style=" padding: 20px 0; font: 2em Arial, Helvetica, sans-serif;">Nağd Krediti Hesabla</h2>
 
-    <h2 style="text-align: left; padding: 20px 0; font: 2em Arial, Helvetica, sans-serif;">Nağd Krediti Hesabla</h2>
-
-    <div id="parent">
-        <div id="left">
-            <div class="range">
-                <div class="inpmezmun">
-                    <p>Hansı məbləğ arzunuzu reallaşdırar</p>
-                    <p class="inpval">5000 azn</p>
+        <div id="parent">
+            <div id="left">
+                <div class="range">
+                    <div class="inpmezmun">
+                        <p>Hansı məbləğ arzunuzu reallaşdırar</p>
+                        <p class="inpval">5000 azn</p>
+                    </div>
+                    <input oninput="showInp1Val()" id="inp1" value="5000" min="300" max="40000" type="range">
                 </div>
-                <input oninput="showInp1Val()" id="inp1" value="5000" min="300" max="40000" type="range">
-            </div>
-            <div id="azn">
-                <span class="minval">300</span>
-                <span class="maxval">40000</span>
+                <div id="azn">
+                    <span class="minval">300</span>
+                    <span class="maxval">40000</span>
+                </div>
+
+                <div class="range">
+                    <div class="inpmezmun">
+                        <p>Müddəti seçin</p>
+                        <p class="inp2val">12 ay</p>
+                    </div>
+                    <input oninput="showInp2Val()" id="inp2" value="12" min="3" max="48" type="range">
+                </div>
+                <div id="ay">
+                    <span class="minval">3 ay</span>
+                    <span class="maxval">48 ay</span>
+                </div>
             </div>
 
-            <div class="range">
-                <div class="inpmezmun">
-                    <p>Müddəti seçin</p>
-                    <p class="inp2val">12 ay</p>
+            <div id="right">
+                <h3>Bizim Təklif</h3>
+                <div class="faizode">
+                    <div id="faiz">
+                        <p>Faiz Dərəcəsi</p>
+                        <h2 id="faizdegree">11%</h2>
+                    </div>
+                    <div class="ayliqodenis">
+                        <p>Aylıq Ödəniş</p>
+                        <h2 id="odenis">462 ₼</h2>
+                    </div>
                 </div>
-                <input oninput="showInp2Val()" id="inp2" value="12" min="3" max="48" type="range">
-            </div>
-            <div id="ay">
-                <span class="minval">3 ay</span>
-                <span class="maxval">48 ay</span>
             </div>
         </div>
+    </div>
+    <div style="display: none;" id="emanet">
+        <h2 style=" padding: 20px 0; font: 2em Arial, Helvetica, sans-serif;">əmanət üzrə gəliri hesablayın</h2>
 
-        <div id="right">
-            <h3>Bizim Təklif</h3>
-            <div class="faizode">
-                <div id="faiz">
-                    <p>Faiz Dərəcəsi</p>
-                    <h2 id="faizdegree">11%</h2>
-                </div>
-                <div class="ayliqodenis">
-                    <p>Aylıq Ödəniş</p>
-                    <h2 id="odenis">462 ₼</h2>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     <script>
@@ -61,7 +78,7 @@
         const inp2val = document.querySelector('.inp2val');
         const faizdegree = document.querySelector('#faizdegree');
         const odenis = document.querySelector('#odenis');
-
+        const btns = document.getElementsByClassName('a1')
         function showInp1Val() {
             inpval.innerHTML = `${inp1.value} azn`;
             calc();
@@ -71,7 +88,7 @@
             let ay = parseInt(inp2.value);
             let il = Math.floor(ay / 12);
             let qaliqAy = ay % 12;
-            inp2val.innerHTML = qaliqAy === 0 ? `${il} il` : `${il} il ${qaliqAy} ay`;
+            inp2val.innerHTML = il === 0 ? inp2val.innerHTML = `${qaliqAy} ay` :qaliqAy === 0 ? `${il} il` : `${il} il ${qaliqAy} ay`;
             calc();
         }
 
@@ -85,6 +102,20 @@
         }
 
         calc();
+        function change(status) {
+            btns[0].style.background = status ? "#6F0BBB" : "#F3F3F3"
+            btns[1].style.background = !status ? "#6F0BBB" : "#F3F3F3"
+
+            btns[0].style.color = status ? "#fff" : "#000";
+            btns[1].style.color = !status ? "#fff" : "#000";
+
+
+            document.getElementById("nagd").style.display = status ? "block" : "none";
+            document.getElementById("emanet").style.display = !status ? "block" : "none";
+        }
+        change(true)
+
+
     </script>
 </body>
 
