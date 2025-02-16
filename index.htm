@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nağd Kredit Hesablayıcı</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h2 style="text-align: left; padding: 20px 0; font: 2em Arial, Helvetica, sans-serif;">Nağd Krediti Hesabla</h2>
+
+    <div id="parent">
+        <div id="left">
+            <div class="range">
+                <div class="inpmezmun">
+                    <p>Hansı məbləğ arzunuzu reallaşdırar</p>
+                    <p class="inpval">5000 azn</p>
+                </div>
+                <input oninput="showInp1Val()" id="inp1" value="5000" min="300" max="40000" type="range">
+            </div>
+            <div id="azn">
+                <span class="minval">300</span>
+                <span class="maxval">40000</span>
+            </div>
+
+            <div class="range">
+                <div class="inpmezmun">
+                    <p>Müddəti seçin</p>
+                    <p class="inp2val">12 ay</p>
+                </div>
+                <input oninput="showInp2Val()" id="inp2" value="12" min="3" max="48" type="range">
+            </div>
+            <div id="ay">
+                <span class="minval">3 ay</span>
+                <span class="maxval">48 ay</span>
+            </div>
+        </div>
+
+        <div id="right">
+            <h3>Bizim Təklif</h3>
+            <div class="faizode">
+                <div id="faiz">
+                    <p>Faiz Dərəcəsi</p>
+                    <h2 id="faizdegree">11%</h2>
+                </div>
+                <div class="ayliqodenis">
+                    <p>Aylıq Ödəniş</p>
+                    <h2 id="odenis">462 ₼</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inp1 = document.querySelector('#inp1');
+        const inp2 = document.querySelector('#inp2');
+        const inpval = document.querySelector('.inpval');
+        const inp2val = document.querySelector('.inp2val');
+        const faizdegree = document.querySelector('#faizdegree');
+        const odenis = document.querySelector('#odenis');
+
+        function showInp1Val() {
+            inpval.innerHTML = `${inp1.value} azn`;
+            calc();
+        }
+
+        function showInp2Val() {
+            let ay = parseInt(inp2.value);
+            let il = Math.floor(ay / 12);
+            let qaliqAy = ay % 12;
+            inp2val.innerHTML = qaliqAy === 0 ? `${il} il` : `${il} il ${qaliqAy} ay`;
+            calc();
+        }
+
+        function calc() {
+            let faizdeg = inp2.value > 36 ? 16.5 : inp2.value > 24 ? 15.5 : inp2.value > 12 ? 14.5 : 11;
+            faizdegree.innerHTML = `${faizdeg} %`;
+
+            let umumi = +inp1.value + (inp1.value * faizdeg / 100);
+            let son = Math.round(umumi / inp2.value);
+            odenis.innerHTML = `${son} ₼`;
+        }
+
+        calc();
+    </script>
+</body>
+
+</html>

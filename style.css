@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+#parent {
+    display: flex;
+    gap: 30px;
+}
+
+#left {
+    width: 667px;
+    height: 331px;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    padding: 45px 20px;
+    border-radius: 20px;
+}
+
+.range {
+    height: 50px;
+    padding: 20px 15px 35px 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 1em;
+    border: 1px solid #6F0BBB;
+}
+
+ p {
+    color: #818181;
+    margin-bottom: 5px;
+    font: 1em Inter, sans-serif;
+}
+
+.range input {
+    position: relative;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+}
+
+/* Slider Ümumi Stil */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 90%;
+    height: 6px;
+    background: #6F0BBB;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #6F0BBB;
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-track {
+    background: #6F0BBB;
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-ms-track {
+    background: #6F0BBB;
+    height: 6px;
+    border-radius: 3px;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Thumb (Barmaq) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #6F0BBB;
+    margin-top: -4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #6F0BBB;
+}
+
+input[type="range"]::-ms-thumb {
+    height: 14px;
+    width: 14px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #6F0BBB;
+}
+
+#azn,
+#ay {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 0 30px;
+
+}
+
+.inpmezmun {
+    display: flex;
+    justify-content: space-between;
+}
+
+#right {
+    width: 325px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    border-radius: 20px;
+
+    h3,h2 {
+        font: bold 2em Inter, sans-serif;
+    }
+    h2{
+        padding: 5px 0;
+    }
+
+}
+
+.faizode {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+}
